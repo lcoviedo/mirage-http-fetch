@@ -25,7 +25,7 @@ let () =
   add_to_ocamlfind_libraries ["mirage-http";];
   add_to_opam_packages ["mirage-http"];
   let sv4 = stack default_console in
-  let res_dns = resolver_dns ~ns:(Ipaddr.V4.of_string_exn "128.243.21.232") sv4 in
+  let res_dns = resolver_dns ~ns:(Ipaddr.V4.of_string_exn "8.8.8.8") sv4 in
   let conduit = conduit_direct sv4 in
   let job =  [ client $ default_console $ res_dns $ conduit ] in
   register "http-fetch" job
